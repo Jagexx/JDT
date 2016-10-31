@@ -48,16 +48,17 @@ a.bookmarklink {
     color: white;
     font-style: normal;
 }
+/*@keyframes falldown{
+  0%{top:0;left:0;}
+  20%{top:150px;}
+  50%{top:450;}
+  60%{top:1000px;}
+  100%{top:1600px;}
+}*/
+
 @keyframes falldown{
-  0%{top:0;left:0;}/*
-  5%{top:100px;left:0;}
-  10%{top:250px;left:0;}
-  25%{top:500px;left:200px;}
-  50%{top:550px;left:100px;}
-  65%{top:600px;left:50px;}
-  80%{tops:900px;right:100px;}
-  90%{top:1000px;right:125px;}*/
-  100%{top:1600px; right:150px;}
+  from{top:0;}
+  to{top:1600px;}
 }
 i{
     position: relative;
@@ -65,11 +66,13 @@ i{
     display: -webkit-inline-box;
 }
 .introdiv:hover i{
-  color:blue;
-  positon:absolute !important;
-  text-align: -webkit-auto;
-  display: -webkit-inline-box !important;
-  animation-duration: 5s;
-  animation-name: falldown;
-  animation-iteration-count: infinite;
+    /*color: blue;*/
+    positon: absolute !important;
+    text-align: -webkit-auto;
+    display: -webkit-inline-box !important;
+    animation-duration: 1s;
+    animation-name: falldown;
+    transition: webkit-transform 0.1s cubic-bezier(0.76, 0.11, 1, -0.07);
+    animation-iteration-count: once;
+    top:1600px;
 }
