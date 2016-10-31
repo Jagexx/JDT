@@ -35,6 +35,7 @@ p.p3 {
     border-color: rgba(212, 229, 243, 0.35);
     backdrop-filter: blur(3px);
     margin: auto;
+    margin-bottom: 20px;
     width: 350px;
     padding: 50px;
     position: relative;
