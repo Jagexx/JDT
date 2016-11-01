@@ -11,6 +11,9 @@
 
 (function() {
     'use strict';
+    //add ETA, Last Played, and Next Q Display into header
+    //add play my own list
+    //maybe DTA style pets
 
     var jetman640stools;
     function Jetman640sToolScript(){

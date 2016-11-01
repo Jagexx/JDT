@@ -1,16 +1,22 @@
 ﻿// ==UserScript==
-// @name         𝑔𝑖𝑣𝑒 𝑑𝑒𝑚 𝑒𝑚𝑜𝑡𝑒𝑠(Jetman640 vs23)
+// @name         𝑔𝑖𝑣𝑒 𝑑𝑒𝑚 𝑒𝑚𝑜𝑡𝑒𝑠(Jetman640 vs)
 // @version      1.2
 // @description  part of the ReDub script, but since it will take a while (or maybe never) to release and this is already done I'm taking it apart into it's own script
 // @author       Netux
 // @contact		 Dubtrack → netux | GitHub → Netox005
 // @run-at		 document-body
 // @match        https://*.dubtrack.fm/*
+// @require      https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.js
+// @require      https://raw.githubusercontent.com/eligrey/Blob.js/master/Blob.js
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
+
+    //
+
+    //shitisready && !shitisset && !shitissetting
     var shitisready = false;
     var shitisset = false;
     var shitissetting = false;
@@ -45,6 +51,17 @@
             room: false
         },
             toLoad = Object.keys(emoteList).length - 1,
+            toCompile = Object.keys(emoteList).length - 1,
+            //halloweenemotes = ["HalloPirate","HalloKKona", "HalloFedora", "HalloWitch","HalloHorns","HalloHalo"],
+            //halloweenemotes = {
+            //    'HalloPirate':'true',
+            //    'HalloKKona':'true', 
+            //    'HalloFedora':'true', 
+            //    'HalloWitch':'true',
+            //    'HalloHorns':'true',
+            //    'HalloHalo':'true',
+            //},
+            //toCompile = 1,
             emoteConvertionsCount = 0,
             groupRegexp = {
                 'twitchtv|ttv|tv': 'twitchtv',
@@ -70,6 +87,8 @@
                 redub_api_endpoint: 'https://github.netux.ml/userscript/redub/emotes.json',
                 //redub_api_endpoint: "https://raw.githubusercontent.com/Jetman640/Junk/master/CompiledEmotes.json",
                 // redub_images_endpoint: {using regexp value}
+                bettertwitchtvbetter_api_endpint: 'https://raw.githubusercontent.com/Jiiks/BetterDiscordApp/master/data/emotedata_bttv.json',
+                //https://github.com/Jetman640/Junk/raw/master/CompiledEmotes.json
 
 
                 triggered_sign_image_endpoint: 'https://github.netux.ml/userscript/redub/triggered_sign.png'
@@ -156,7 +175,7 @@
               '	background-color: rgba(255, 0, 0, 0.14);' +
               '}' +
               'img.redub.emote.hallo{' +
-              ' left: 4px;' +//<===================================================================|| Added this
+              ' left: 4px;' +
               ' top: -6.5px;' +
               ' position: relative;' +
               '}' +
@@ -262,6 +281,45 @@
                     'TwitchTV'
                 );
             },
+            loadBetterTwitchTVEmotesBetter: function(callback, obj){
+                var frankerfacez = obj;
+                loadFunctions.requestAnyEmote(
+                    links.bettertwitchtvbetter_api_endpint,
+                    function(parsedData) {
+                        if(parsedData === false)
+                            return callback(false);
+
+                        /*
+                        	parsedData: {
+                        		{String:regexp}: {String:id}
+                        		<...>
+                        	}
+                        */
+                        Object.keys(parsedData).forEach(function(code) {
+                            var codeLc = code.toLowerCase();
+
+                            var emoteRegexp = codeLc;
+                            var possibleIndex = 0;
+                            while(frankerfacez[emoteRegexp])
+                                emoteRegexp = codeLc + '-' + (++possibleIndex);
+
+                            var emote = { id: parsedData[code] };
+                            {
+                                if(code !== codeLc || possibleIndex > 0)
+                                    emote.originalRegexp = code;
+                            }
+                            //emoteList.bettertwitchtv.push(emote);
+                            frankerfacez[emoteRegexp] = emote;
+                            //emoteList.bettertwitchtv[emoteRegexp] = emote;
+                        });
+                        //frankerfacez["tiltdance"] = '57bcf23ed5219dd112c176b9';
+                        emoteList.bettertwitchtv = frankerfacez;
+                        //emoteList.bettertwitchtv.push(frankerfacez);
+                        callback(true);
+                    },
+                    'FrankerFaceZ'
+                );
+            },
             loadBetterTwitchTVEmotes: function(callback) {
                 var bettertwitchtv = { };
                 loadFunctions.requestAnyEmote(
@@ -309,11 +367,12 @@
                             bettertwitchtv[emoteRegexp] = emote;
                         });
 
-                        emoteList.bettertwitchtv = bettertwitchtv;
-                        callback(true);
+                        //emoteList.bettertwitchtv = bettertwitchtv;
+                        //callback(true);
                     },
                     'BetterTwitchTV'
                 );
+                this.loadBetterTwitchTVEmotesBetter(callback, bettertwitchtv);
             },
             loadTastyCatEmotes: function(callback) {
                 var tastycat = { };
@@ -428,6 +487,12 @@
                                 code.split('|').forEach(setEmote);
                             else setEmote(code);
                         });
+                        /*
+                        redub["tiltdance"] = { imageSrc: 'https://cdn.betterttv.net/emote/57bcf23ed5219dd112c176b9/3x'};
+                        redub["trollface"]= { imageSrc: 'https://cdn.betterttv.net/emote/54fa8f1401e468494b85b537/1x'};
+                        redub["themoreyouknow"] = { imageSrc: "http://imgur.com/5Ik8Htu.png"};
+                        redub["wadeblake"] = { imageSrc: "https://cdn.betterttv.net/emote/580a338c3d506fea7ee365eb/3x"};
+                        redub["cobyFace"] = { imageSrc: "https://cdn.betterttv.net/emote/580564c763c97c037fc9d890/3x"};*/
                         console.log("RedubEmotes",Object.keys(redub).length);
                         emoteList.redub = redub;
                         callback(true);
@@ -455,6 +520,49 @@
                 }
             }
         };
+        //um ignore this... its just me trying to add in some time intelesence or how ever you spell that name
+        /*var isEmoting = false;
+
+        var intelemote = function(){
+            if(!isEmoting){
+                isEmoting = true;
+
+                var tb = document.getElementById("chat-txt-message");
+                if(tb.value === null)
+                {
+                        isEmoting = false;
+                        return;
+                }
+                if(0<tb.value.length)
+                {
+                    //([^\s]+) for a space
+                    //(?:www)? nothing
+                    //\:(.*?)\: colon
+                    //\:(.?)?[\s]?
+                    //var regx = tb.value.match("/:([^/s]+)");
+                    //var regx = tb.value.match("\:(.*?)\(?::^\s)?");
+                    //var regx = tb.value.split(":|(?::)?")[0];
+                    //var regx = tb.value.split(":|:");/(?!:. ):.[^ :]+:/gi
+                    //var regx = tb.value.match(/(?!:. ):.[^ :]+:/gi);
+                    var regx = tb.value;
+                    if(regx.includes(":")){
+                        regx = regx.split(":");
+                    if(regx===null)
+                    {
+                        isEmoting = false;
+                        return;
+                    }
+                    regx = regx[regx.length];
+                    if(3<regx.length)
+                    {
+                        console.log("regx",regx);
+                    }
+                    }
+                    console.log("tbvalue", tb.value);
+                }
+                isEmoting = false;
+            }
+        };*/
         /* Load emotes */ {
             var onDoneCallback = function() {
                 toLoad--;
@@ -478,13 +586,18 @@
                         loadFunctions.loadTwitchTVEmotes(onDoneCallback);
                         break;
                     case 1:
+                        shitisready = true;
                         loadFunctions.loadRedubEmotes(onDoneCallback);
+                        //loadFunctions.loadFrankerFaceZEmotes(onDoneCallback);
                         break;
                     case 0:
                         loadFunctions.finishLoading();
                         break;
                 }
             };
+            //chat-txt-message
+            //document.getElementById("chat-txt-message").addEventListener("change", intelemote);
+            ////$(document).ready(function(){ document.getElementById("chat-txt-message").onchange = intelemote; });
             loop();
         }
 
@@ -521,12 +634,26 @@
         }
         var halloweenemotes = {
             'HalloPirate':'true',
-            'HalloKKona':'true', //<====================================================||Added This
+            'HalloKKona':'true', 
             'HalloFedora':'true', 
             'HalloWitch':'true',
             'HalloHorns':'true',
             'HalloHalo':'true',
         };
+        function renderHalloween(img,emoteobj) {
+            
+            //var sp = document.createElement("span");
+            //console.log("img",img);//<img class="redub emote" title=":twitchtv>VoHiYo:" src="https://static-cdn.jtvnw.net/emoticons/v1/81274/2.0" data-group="twitchtv" data-regexp="VoHiYo">
+            //console.log("emoteobj.originalRegexp",emoteobj.originalRegexp);
+            //sp.class = 'redub emote hallo';
+            //sp.title = ':redub>'+emoteobj.originalRegexp+':';
+            //sp.data-group = 'redub';
+            //sp.appendChild(img);
+            //return sp;
+            //return '<span class="redub emote hallo"title=":redub>' +
+            //   img+
+            //   '</span>';
+        }
         // super unoptimized function -- but oh well ¯\_(ツ)_/¯
         function replaceOnElement(html, callback) {
             if(toLoad > 0)
@@ -637,6 +764,9 @@
                 };
 
                 var emoteImg = new Image();
+                //console.log("emoteobj",emoteObj.originalRegexp);
+                //console.log("halloweenemotes",halloweenemotes);
+                //console.log("halloweenemotes[emoteObj.originalRegexp]", halloweenemotes[emoteObj.originalRegexp]);
                 if(halloweenemotes[emoteObj.originalRegexp]==='true'){
 
                     console.log("renderingemote",renderHalloween(emoteImg));
@@ -647,7 +777,7 @@
                             ' title=":' + group + '>' + (emoteObj.originalRegexp || regexp) + ':"' +
                             ' src="' + emoteImg.src + '"' +
                             ' data-group="' + group + '"' +
-                            ' data-regexp="' + (emoteObj.originalRegexp || regexp) + '"' +//<=========================================================||Added This
+                            ' data-regexp="' + (emoteObj.originalRegexp || regexp) + '"' +
                             ' /></span>');
                     };
                 }
@@ -690,6 +820,135 @@
 
             return callback(html);
         }
+        //---------------------//
+        //----Compiler Code----//
+        //---------------------//
+        /*
+        var compiledemotes = {
+                emotes:false,
+        };
+        var emoteExists = function(emotekey, count){
+            count = count + 1;
+            var newEmoteKey = emotekey.concat(count);
+            if(emotekey in compiledemotes.emotes){
+            return emoteExists(newEmoteKey,count);
+            }else{
+            return emotekey;
+            }
+        };
+        var compilerFunctions = {
+            compileEmotes: function(compilercallback){
+                console.log("Object.keys(emoteList[Object.keys(emoteList)[toCompile]]).length",Object.keys(emoteList[Object.keys(emoteList)[toCompile]]).length);
+                for(var i =0; i < Object.keys(emoteList[Object.keys(emoteList)[toCompile]]).length;i++)
+                {
+                    console.log("forloop",i);
+                    var emotekey = Object.keys(emoteList[Object.keys(emoteList)[toCompile]])[i];
+                    console.log("emotekey", emotekey);
+                    var group = Object.keys(emoteList)[toCompile];
+                    console.log("group",group);
+                    var emoteOBJ = emoteList[group][emotekey];
+                    var emoteImg = new Image();
+                    var cont = false;
+                    emoteImg.onerror = function() {
+                    if(group === 'frankerfacez' && !emoteObj.useByOneVersion) {
+                        emoteObj.useByOneVersion = true;
+                        emoteImg.src = getEmoteImage(emoteObj, group, 1);
+                        return;
+                    }
+                    if(group === 'bettertwitchtv' && !emoteObj.useByOneVersion) {
+                        emoteObj.useByOneVersion = true;
+                        emoteImg.src = getEmoteImage(emoteObj, group, 3);
+                        return;
+                    }
+                    onEvent(cont = true
+                    );};
+
+                    emoteImg.src = getEmoteImage(emoteOBJ, group, emoteOBJ.useByOneVersion ? 1 : 2);
+
+                    if(!cont){
+                        //add emote
+            if(!compiledemotes.emotes)
+            {
+                compiledemotes.emotes = {};
+            }
+                        compiledemotes.emotes[emoteExists(emotekey,0)] = emoteImg.src;
+                    }
+                    console.log("src", emoteImg.src);
+                    //emoteURL = getEmoteImage(emoteOBJ, group,  emoteObj.useByOneVersion ? 1 : 2);
+                console.log("EmoteCount ",Object.keys(compiledemotes.emotes).length);
+
+                }
+                //getEmoteImage(
+
+                compilercallback();
+            },
+            finishedCompiling: function(){
+                //save file
+                var blob = new Blob([JSON.stringify(compiledemotes.emotes)], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "CompiledEmotes.json");
+                shitisset = true;
+            }
+        };
+        {
+            var compilerWait;
+        var compilercallback = function(){
+                toCompile--;
+                compilerloop();
+        };
+        var compilerloop = function(){
+            if(shitisready)
+            {
+                //compiledemotes.emotes = {};
+                shitissetting = true;
+                console.log("shitissetting",shitissetting);
+                //clearInterval(compilerWait);
+                switch(toCompile) {
+                    default:
+                        break;
+					case 5:
+                        compilerFunctions.compileEmotes(compilercallback);
+                        break;
+                    case 4:
+                        compilerFunctions.compileEmotes(compilercallback);
+                        break;
+                    case 3:
+                        compilerFunctions.compileEmotes(compilercallback);
+                        break;
+                    case 2:
+                        compilerFunctions.compileEmotes(compilercallback);
+                        break;
+                    case 1:
+                      	compilerFunctions.compileEmotes(compilercallback);
+                        break;
+					case 0:
+					 	compilerFunctions.finishedCompiling();
+						break;
+                }
+            }
+            };
+            //if(shitisready && !shitisset && !shitissetting)
+            if(shitisready && !shitisset && !shitissetting)
+            {
+                shitissetting = true;
+                //compilerloop();
+            }
+            else
+            {
+                console.log("shitissetting",shitissetting);
+                //if(!shitissetting)
+                shitissetting=true;
+                compilerWait = setInterval(function(){
+                    if(shitissetting)
+                        clearInterval(compilerWait);
+                    if(shitisready)
+                    {
+                        //compilerloop();//uncomment me if you want to compile... but be prepared to have your tab lock up till it is finished
+                        //clearInterval(compilerWait);
+                    }
+                }, 15000);
+            }
+        }
+        */
 
     }
 
