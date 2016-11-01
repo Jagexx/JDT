@@ -1,4 +1,7 @@
 body {
+    margin: 0;
+    padding: 0;
+    top: 0;
     line-height: 1;
     color: rgba(234, 245, 249, 0.96);
     background: #000000;
@@ -8,24 +11,47 @@ body {
     -webkit-text-stroke: 1px rgba(232, 232, 232, 0.25);
     background: repeating-linear-gradient(to top, rgba(1, 10, 23, 0.78) 0px,rgba(3, 18, 27, 0.99) 2px, rgba(2, 15, 31, 0.86) 4px, rgba(2, 16, 33, 0.9) 8px);
 }
+.wrapperdiv {/**/
+    /* overflow: hidden; */
+    top: 0px;
+    bottom: 0px;
+    height: 93%;
+    positon: relative;
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
 .introdiv {
+    overflow: hidden;
     margin: auto;
-    width: 800px;
+    margin-top: 3.5rem;
+    width: 50%;
+    height: 100%;
+    bottom: 0px;
     text-align: center;
-    position: relative;
-    top: 3.5rem;
+    position: static;
+    /* top: 40%; */
+}
+p {
+    margin: 0;
 }
 p.p1 {
+    max-width: 600px;
+    margin: auto;
     font-weight: 900;
     font-size: 90px;
+    margin-bottom: 0;
 }
 p.p2 {
     font-weight: 700;
     font-size: 42px;
+    margin-bottom: 0;
 }
 p.p3 {
     font-weight: 500;
     font-size: 24px;
+    margin-bottom: 0;
 }
 .buttondiv {
     background: rgba(106, 107, 115, 0.58);
@@ -36,8 +62,9 @@ p.p3 {
     border-color: rgba(212, 229, 243, 0.35);
     backdrop-filter: blur(3px);
     margin: auto;
+    margin-top: 20px;
     margin-bottom: 20px;
-    width: 350px;
+    width: 40%;
     padding: 50px;
     position: relative;
 }
@@ -57,7 +84,6 @@ a.bookmarklink {
 
 @keyframes falldown{
   from{top:0;}
-    95%{top:100%;display:none;}
   to{top:1600px;}
 }
 i{
@@ -71,8 +97,8 @@ i{
     text-align: -webkit-auto;
     display: -webkit-inline-box !important;
     animation-duration: 1s;
-    /*animation-name: falldown;*/
+    animation-name: falldown;
     transition: webkit-transform 0.1s cubic-bezier(0.76, 0.11, 1, -0.07);
     animation-iteration-count: once;
-    /*top:1600px;*/
+    top:1600px;
 }
