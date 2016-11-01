@@ -30,7 +30,7 @@
         //===========================================//
         jetman640stools.switches = {//switch types: select, input, bool, none
             cleanchat: { setting:"cleanchat", settingtype:"select", title:"Max Messages (0 is off)", defaultvalue:250, currentvalue:250, options:[0,50,100,150,200,350,500,1000] },
-            etacheck: { setting:"etacheck", settingtype:"bool", title:"Display Your Q Info", defaultvalue:false, currentvalue:false, options:[0,50,100,150,200,350,500,1000] },
+            //etacheck: { setting:"etacheck", settingtype:"bool", title:"Display Your Q Info", defaultvalue:false, currentvalue:false, options:[0,50,100,150,200,350,500,1000] },
             //scaledubtrack: { setting:"scaledubtrack", settingtype:"select", title:"Dubtrack Scale", defaultvalue:1.0, currentvalue:1.0, options:[0.25,0.50,0.75,1.0,1.25,1.5,1.75,2] },
             //somerandominput: { setting:"somerandominput", settingtype:"input", title:"Some Text Input", defaultvalue:"somerandomtext", currentvalue:"somerandomtext", options:[] },
             //onoffswitch: { setting:"onoffswitch", settingtype:"bool", title:"An On Off Switch For Testing", defaultvalue:false, currentvalue:false, options:[] },
