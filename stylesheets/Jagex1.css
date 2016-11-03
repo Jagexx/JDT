@@ -1,0 +1,511 @@
+/*=====Background=====*/
+.backstretch-item {
+    background: url(http://i.imgur.com/Aku8EEc.png);
+    background-size: 100% 100%;
+}
+
+.backstretch img {
+    visibility: hidden;
+}
+
+/*=====Header=====*/
+#header-global {
+    height: 6.6%;
+    background: url(http://i.imgur.com/RvQ8N57.png);
+    background-size: 100% 82%;
+    background-repeat: no-repeat;
+    padding: 0;
+    padding-top: 0.3%;
+}
+.header-center-logo a {
+    background: url(http://i.imgur.com/gD2n1hW.png);
+    background-size: 100% 100%;
+}
+.header-center-logo img {
+    visibility: hidden;
+}
+#header-global .header-left-navigation {
+    background: rgba(0, 0, 0, 0.73);
+    /* border: 1px; */
+    border-right: 1px;
+    border-left: none;
+    border-style: solid;
+    border-radius: 13px;
+    border-color: rgba(0, 0, 0, 0.52);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.16);
+    z-index: 36;
+}
+#header-global .user-info {
+    background: black;
+    border: 1px;
+    border-left: 9px;
+    border-right: none;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.44);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.16);
+}
+
+/*====Main Room====*/
+#main-room {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+	max-width:100%;
+}
+#main-room .main-room-wrapper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*====Main Room Player CSS=======*/
+#main-room .left_section {
+    margin: auto;
+    padding: 0;
+    position: absolute;
+    display: inline-block;
+}
+#main-room .main-player-wrapper {
+    padding: 0;
+    margin: 0;
+    left: 12%;
+    top: 10%;
+    height: 46%;
+    width: 34%;
+    display: inline-block !important;
+    position: absolute !important;
+    background: url(http://i.imgur.com/jrJ358e.png);
+    background-size: 100% 100%;
+}
+#main_player {
+    padding: 0;
+    margin: 0;
+    top: 23.6%;
+    left: 8.9%;
+    position: relative;
+    width: 82.2%;
+    height: 53.8%;
+    border-radius: 0;
+    /* border: 1px; */
+    /* border-style: solid; */
+}
+
+/*===Player Header Options===*/
+#main_player .player_header {
+    position: absolute;
+    top: -17%;
+    left: auto;
+    right: 100%;
+    width: 30%;
+    height: 134%;
+    /* border: 1px; */
+    /* border-style: solid; */
+    background: url(http://i.imgur.com/zHDWaWC.png);
+    background-size: 94% 88%;
+    background-repeat: no-repeat;
+    /* background-position: 14% -7%; */
+}
+
+#main_player .player_header span:hover {
+    background: url(http://i.imgur.com/6WiPjJw.png);
+    background-size: 100% 100%;
+    -webkit-filter: drop-shadow(0px 0px 12px rgba(4, 245, 223, 0.95));
+    -ms-filter: drop-shadow(0px 0px 12px rgba(4, 245, 223, 0.95));
+    filter: drop-shadow(0px 0px 12px rgba(4, 245, 223, 0.95));
+}
+#main_player .player_header span.active {
+    color: rgb(30, 223, 232);
+    background: url(http://i.imgur.com/6WiPjJw.png);
+    background-size: 100% 100%;
+    -webkit-filter: drop-shadow(0px 0px 12px rgba(55, 113, 220, 0.83));
+    -ms-filter: drop-shadow(0px 0px 12px rgba(55, 113, 220, 0.83));
+    filter: drop-shadow(0px 0px 12px rgba(55, 113, 220, 0.83));
+}
+#main_player .player_header .skip-el,
+#main_player .player_header .displayVideo-el,
+#main_player .player_header .display-queue,
+#main_player .player_header .room-info-display,
+#main_player .player_header .display-mods-controls,
+#main_player .player_header .edit-room{
+    padding: 5% !important;
+    width: 82%;
+    position: absolute !important;
+    float: none !important;
+    right: 0;
+    margin: 0 !important;
+    background: transparent;
+    /* border: 1px; */
+    /* border-style: solid; */
+    height: 11%;
+    filter: dropshadow(0,0,0,10px);
+    /* color: transparent; */
+}
+#main_player .player_header .skip-el {
+    position: absolute;
+    bottom: 14%;
+    background: url(http://i.imgur.com/6WiPjJw.png);
+    background-size: 100% 100%;
+}
+#main_player .player_header .displayVideo-el {
+    bottom: 43%;
+    background: url(http://i.imgur.com/8oTGcpA.png);
+    background-size: 100% 100%;
+}
+#main_player .player_header .display-queue {
+    bottom: 71%;
+    background: url(http://i.imgur.com/8oTGcpA.png);
+    background-size: 100% 100%;
+}
+#main_player .player_header .room-info-display {
+    bottom: 57%;
+    background: url(http://i.imgur.com/4EeJZYG.png);
+    background-size: 100% 100%;
+}
+#main_player .player_header .display-mods-controls {
+    bottom: 28%;
+    background: url(http://i.imgur.com/8oTGcpA.png);
+    background-size: 100% 100%;
+}
+#main_player .player_header .edit-room {
+    bottom: 0;
+    background: url(http://i.imgur.com/4EeJZYG.png);
+    background-size: 100% 100%;
+}
+#main_player .player_header .edit-room i {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    /* background: black; */
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+/*===Main Player Video >.<===*/
+#main_player #room-info-display, #main_player #mods-controllers {
+    display: inline-block;
+    height: 100.1%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    top: 0%;
+    position: absolute;
+    background: black;
+    z-index: 2;
+}
+#main_player .player_container {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    top: 0%;
+    position: absolute;
+    /* border: 1px; */
+    /* border-style: solid; */
+}
+
+/*Trickery*/
+/*
+#main_player .placeholder {
+    display: none;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: inset 0 0 4rem rgba(0, 0, 0, 0);
+    background: url(http://i.imgur.com/8E5CCox.png);
+    background-size: 100% auto;
+    display: inline-block !important;
+    z-index: 5000;
+}
+#main_player .placeholder h5{
+	visibility: hidden;
+}*/
+
+#main_player .player_sharing {
+    bottom: -13px;
+    top: 100%;
+    width: 100%;
+    height: 19%;
+    position: absolute;
+    margin: 0;
+    padding: 2%;
+    background: rgba(27, 144, 228, 0.22);
+}
+
+#main_player .play-song-link-container {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 32%;
+    height: 27%;
+    top: 142%;
+    bottom: auto;
+    background: url(http://i.imgur.com/8E5CCox.png);
+    background-size: 100%;
+    top: 0;
+    z-index: 500;
+}
+#main_player .play-song-link-container .play-song-link-browser, #main_player .play-song-link-container .play-song-link {
+    margin: 0;
+    bottom: -512%;
+    padding: 2%;
+    width: 35%;
+    height: 67%;
+    border-radius: 0;
+    background: url(http://i.imgur.com/JBtIpIx.png);
+    background-size: 100% 100%;
+    position: relative;
+}
+#main_player .play-song-link-container .play-song-link-browser {
+    margin-right: 14%;
+    margin-top: 2%;
+}
+#main_player .play-song-link-container i {
+    color: transparent !important;
+    background: url(http://i.imgur.com/T1Fkphz.png);
+    background-size: 100% 100%;
+    width: 13%;
+    height: auto;
+    position: relative;
+    padding: 5px;
+}
+
+/*===Chat Room===*/
+#main-room .right_section {
+    position: absolute;
+    width: 35%;
+    height: auto;
+    bottom: 4%;
+    top: 2%;
+    right: 13%;
+    z-index: 250;
+    background: url(http://i.imgur.com/iVaobCD.png);
+    background-size: 100% 100%;
+}
+#main-room.display-users-rooms #main_avatar_room {
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    background-clip: content-box;
+    border-radius: 10px;
+    /*border: 1px;*/
+    /*border-style: solid;*/
+    padding: 15.6%;
+    padding-top: 21.8%;
+    padding-bottom: 11%;
+    /* margin: 16%; */
+    /* margin-top: 13%; */
+    /* top: 16.3%; */
+    /* left: 15.8%; */
+    /* width: 68.5%; */
+    /* height: 82%; */
+}
+#main_avatar_room .avatar_tools {
+    width: 100%;
+    position: relative;
+    top: 0px;
+    left: 0;
+    padding: 0;
+    margin: 0;
+}
+#main-room.display-users-rooms #chat {
+    width: 68.8%;
+    position: absolute;
+    top: 9.8%;
+    height: 56px;
+    height: 3.5rem;
+    overflow: hidden;
+}
+#chat {
+    position: absolute;
+    /* padding: 35px; */
+    background: rgba(0,0,0,0.5);
+    top: 9.8%;
+    left: 15.6%;
+    width: 68.8%;
+    height: 85.2%;
+}
+#chat .chat_tools {
+    background: url(http://i.imgur.com/JLrUmTR.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    z-index: 5000;
+}
+
+/*===player controller===*/
+#player-controller {
+    background: transparent;
+    overflow: visible;
+}
+#player-controller .right {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+}
+#player-controller .right .display-browser.remove-if-banned {
+    position: absolute;
+    right: 53%;
+    bottom: 74%;
+    padding: 0px;
+    margin: 0;
+    height: 51%;
+    width: 8%;
+    background: black;
+    z-index: 500;
+}
+#player-controller .right .display-browser.remove-if-banned .display-browser {
+    padding: 0;
+    margin: auto;
+    bottom: 0;
+    position: relative;
+    /* left: 10%; */
+}
+#player-controller .right .remove-if-banned.remove-if-iframe.display-block {
+    /* margin-right: 2%; */
+    left: 85.5%;
+    /* top: -3%; */
+    padding: 0;
+    float: left;
+    bottom: 14px;
+    position: relative;
+    width: 88px;
+    height: 80px;
+    z-index: 5000;
+}
+#player-controller .right ul .add-to-playlist-button {
+    background: url(http://i.imgur.com/KMyr0ub.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-x: 37%;
+	z-index:5000;
+}
+#player-controller .right ul .icon-heart {
+    visibility: hidden;
+    position: relative;
+    top: 3px;
+}
+#player-controller .right ul .dubup {
+    background: url(http://i.imgur.com/G4VMU5S.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-x: 30%;
+	z-index:5000;
+}
+#player-controller .right ul .dubup .icon-upvote {
+    visibility: hidden;
+}
+#player-controller .right ul .dubdown {
+    background: url(http://i.imgur.com/Sv4aQl5.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-x: 30%;
+	z-index:5000;
+}
+#player-controller .right ul .dubdown .icon-downvote {
+    visibility: hidden;
+}
+#player-controller .left {
+        position: absolute;
+    display: inline-block;
+    bottom: 50%;
+    top: auto;
+    left: 0px;
+    right: auto;
+    width: 53%;
+    height: 80px;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+#player-controller .left ul {
+    height: 100%;
+}
+#player-controller .left ul .imgEl {
+    position: absolute;
+    width: 80px !important;
+    height: 80px !important;
+    /* height: auto; */
+    display: inline-block;
+    top: 0;
+    left: 0;
+}
+#player-controller .left .imgEl img {
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+#player-controller .left .infoContainer {
+    padding-left: 79px !important;
+    margin: 0;
+    position: absolute;
+    display: inline-block;
+    /* left: 79px !important; */
+    height: 100% !important;
+    width: 100%;
+}
+#player-controller .left .infoContainerInner {
+    padding: 0 !important;
+    margin: 0;
+}
+#player-controller .left ul li.infoContainer .infoContainerInner .progressBg{
+    background:rgba(7, 230, 253,0.95);
+    height: 4px;
+    bottom: 1px;
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(5, 255, 105,78);
+    border-left: 0px;
+    border-radius: 4px;
+    -webkit-filter: drop-shadow(0px 0px 12px rgba(5, 255, 105,83));
+    -ms-filter: drop-shadow(0px 0px 12px rgba(5, 255, 105,83));
+    filter: drop-shadow(10px 0px 8px rgba(5, 255, 105,83));
+    box-shadow: 0 0 0 2px rgba(5, 255, 105,35);
+}
+#player-controller .left  .infoContainerInner .currentSong, #player-controller .left  .infoContainerInner .currentDJSong{
+    /* bottom: -1%; */
+    /* top: auto; */
+    width: 70% !important;
+    height: 35%;
+	margin-left:4px;
+    position: absolute;
+    display: inline-block;
+    background: black;
+}
+
+#player-controller .left .infoContainerInner .currentDJSong.creator {
+    position: absolute;
+    bottom: 50%;
+	height:30%;
+    vertical-align: bottom;
+}
+#player-controller .left .infoContainerInner .currentSong {
+    bottom: 15%;
+    /* top: 21%; */
+}
+#player-controller .left ul li.infoContainer .infoContainerInner .currentTime {
+    position: absolute;
+    bottom: 10%;
+    right: 1%;
+    top: auto;
+    height: 35%;
+    background: black;
+}
+
+/*===Un breaking >.<===*/
+#browser {
+    z-index: 5500;
+}
+#main-menu-right {
+    z-index: 500;
+}
+#addToPlaylistFloatContainer{
+	z-index: 550;
+}
